@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from "primeng/button";
@@ -11,10 +11,12 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms"
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {KnobModule} from 'primeng/knob';
-import {RatingModule} from 'primeng/rating';
-import {SliderModule} from 'primeng/slider';
+import { CommonModule } from '@angular/common';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { KnobModule } from 'primeng/knob';
+import { RatingModule } from 'primeng/rating';
+import { SliderModule } from 'primeng/slider';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -24,17 +26,21 @@ import {SliderModule} from 'primeng/slider';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AccordionModule,
     ButtonModule,
+    CommonModule,
     InputTextModule,
     CalendarModule,
     DropdownModule,
-    FormsModule,
     InputSwitchModule,
     KnobModule,
     RatingModule,
-    SliderModule
+    SliderModule,
+    ButtonModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
