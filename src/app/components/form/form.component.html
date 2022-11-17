@@ -1,52 +1,47 @@
-<section class="flex flex-column gap-4 pl-5 pr-5">
-    <div class="flex flex-row flex-wrap justify-content-between  align-items-start gap-4">
-        <h1>
-            Estibyan
-        </h1>
-        <img class="logo" src="https://cdn-icons-png.flaticon.com/512/3447/3447545.png" alt="Logo">
-    </div>
-    <p-toast position="bottom-center"></p-toast>
-    <form [formGroup]="form">
-        <div class="flex flex-column gap-3">
-            <div class="flex md:align-items-baseline gap-3 containers">
-                <label for="name" class="w-12rem">Name</label>
-                <input formControlName="name" type="text" pInputText [ngClass]="styleName" placeholder="Enter your Name" required>
-            </div>
-            <div class="flex align-items-baseline gap-3 containers">
-                <label for="DOB" class="w-12rem">Date of Birth</label>
-                <p-calendar formControlName="date" dateFormat="dd.mm.yy" [ngClass]="styleDate" placeholder="Select a Date"></p-calendar>
-            </div>
-            <div class="flex align-items-baseline gap-3 containers">
-                <label for="Major" class="w-12rem">Major</label>
-                <p-dropdown formControlName="major" [options]="majors" [ngClass]="styleMajor" placeholder="Select a Major" w-5rem></p-dropdown>
-            </div>
-            <div class="flex align-items-baseline gap-3 containers">
-                <label for="status" class="w-12rem">Marital Status</label>
-                <p-dropdown formControlName="marital status" [ngClass]="styleMarital" [options]="status" placeholder="Select Marital Status"></p-dropdown>
-            </div>
-            <div class="flex align-items-center gap-3 containers2">
-                <label for="status" class="w-12rem">Do you like Shawerma?</label>
-                <p-inputSwitch formControlName="shawerma"></p-inputSwitch>
-            </div>
-            <div class="flex align-items-center gap-3 containers2">
-                <label for="status" class="w-12rem">How much do you like Mansaf?</label>
-                <p-knob formControlName="mansaf" ></p-knob>
-            </div>
-            <div class="flex align-items-center gap-3 containers2">
-                <label for="status" class="w-12rem">How much do you like our services?</label>
-                <p-rating formControlName="servicesRating" ></p-rating>
-            </div>
-            <div class="flex align-items-center gap-3 containers2">
-                <label for="status" class="w-12rem">How often do you eat pizza a month?</label>
-                <span>
-                    {{slider.value}}
-                </span>
-                <p-slider formControlName="pizzaSlider" #slider [min]="0" [max]="50" class="w-6rem" ></p-slider>
-            </div>
-            <div class="container">
-                <p-button label="Submit" (click)="validate()"></p-button>
-            </div>
+<form [formGroup]="form">
+    <div class="flex flex-column gap-3">
+        <div class="flex align-items-baseline gap-3 containers">
+            <label for="name" class="w-12rem">Name</label>
+            <input id="name" formControlName="name" type="text" pInputText placeholder="Enter your Name">
         </div>
+        <div class="flex align-items-baseline gap-3 containers">
+            <label for="DOB" class="w-12rem">Date of Birth</label>
+            <p-calendar id="DOB" [readonlyInput]="true" [maxDate]="today" formControlName="date" dateFormat="dd.mm.yy"
+                placeholder="Select a Date"></p-calendar>
+        </div>
+        <div class="flex align-items-baseline gap-3 containers">
+            <label for="Major" class="w-12rem">Major</label>
+            <p-dropdown id="Major" formControlName="major" [options]="majors" placeholder="Select a Major"></p-dropdown>
+        </div>
+        <div class="flex align-items-baseline gap-3 containers">
+            <label for="status" class="w-12rem">Marital Status</label>
+            <p-dropdown id="status" formControlName="marital status" [options]="status"
+                placeholder="Select Marital Status"></p-dropdown>
+        </div>
+        <div class="flex align-items-center gap-3 containers2">
+            <label for="shawerma" class="w-12rem">Do you like Shawerma?</label>
+            <p-inputSwitch id="shawerma" name="shawerma" formControlName="shawerma"></p-inputSwitch>
+        </div>
+        <div class="flex align-items-center gap-3 containers2">
+            <label for="mansaf" class="w-12rem">How much do you like Mansaf?</label>
+            <p-knob id="mansaf" formControlName="mansaf"></p-knob>
+        </div>
+        <div class="flex align-items-center gap-3 containers2">
+            <label for="rating" class="w-12rem">How much do you like our services?</label>
+            <p-rating id="rating" formControlName="servicesRating"></p-rating>
+            <small class="p-error" *ngIf="servicesRating.value  == null">Please choose your preference</small>
+        </div>
+        <div class="flex align-items-center gap-3 containers2">
+            <label for="pizza" class="w-12rem">How often do you eat pizza a month?</label>
+            <span>
+                {{slider.value}}
+            </span>
+            <p-slider id="pizza" formControlName="pizzaSlider" #slider [min]="0" [max]="50" class="w-6rem"></p-slider>
+        </div>
+        <div class="container">
+            <p-button label="Submit" (click)="validate()"></p-button>
+        </div>
+    </div>
 
-    </form>
-</section>
+</form>
+<p-toast position="bottom-center"></p-toast>

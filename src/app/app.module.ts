@@ -17,11 +17,13 @@ import { KnobModule } from 'primeng/knob';
 import { RatingModule } from 'primeng/rating';
 import { SliderModule } from 'primeng/slider';
 import { ToastModule } from 'primeng/toast';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
